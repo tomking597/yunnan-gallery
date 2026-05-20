@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrival in Kunming - Spring City - Yunnan Photo Adventure</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #eee;
+            line-height: 1.6;
+        }
+        .container { max-width: 1400px; margin: 0 auto; padding: 20px; }
+        .header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            margin-bottom: 40px;
+        }
+        .header h1 { font-size: 3rem; margin-bottom: 10px; }
+        .header .date { font-size: 1.2rem; opacity: 0.9; }
+        .header .location { font-size: 1.4rem; font-weight: 600; color: #ffd700; margin: 10px 0; }
+        .header .description { max-width: 700px; margin: 20px auto 0; }
+        .stats {
+            text-align: center;
+            margin: 30px 0;
+            padding: 15px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+        .photo-card {
+            background: rgba(255,255,255,0.08);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        .photo-card:hover { transform: translateY(-5px); }
+        .photo-card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+        }
+        .photo-caption {
+            padding: 12px 15px;
+            font-size: 0.85rem;
+            color: #ccc;
+            background: rgba(0,0,0,0.5);
+        }
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .lightbox.active { display: flex; }
+        .lightbox img { max-width: 90%; max-height: 80%; object-fit: contain; }
+        .lightbox-caption { margin-top: 20px; color: white; }
+        .close-lightbox {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        .nav-lightbox {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            font-size: 30px;
+            padding: 15px 25px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        .prev { left: 20px; }
+        .next { right: 20px; }
+        .back-button {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+        }
+        @media (max-width: 768px) {
+            .gallery { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+            .photo-card img { height: 220px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Arrival in Kunming - Spring City</h1>
+            <div class="date">📅 March 7, 2026</div>
+            <div class="location">📍 Kunming</div>
+            <div class="description">Arrival at Kunming Changshui International Airport. Known as the 'City of Eternal Spring'.</div>
+        </div>
+        
+        <div class="stats">📸 60 photographs • Day 1 of Yunnan Adventure</div>
+        
+        <div class="gallery" id="gallery">
+
+            <div class="photo-card" data-index="0">
+                <img src="20260305_211907.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="1">
+                <img src="20260305_211909.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="2">
+                <img src="20260305_211920.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="3">
+                <img src="20260305_233927.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="4">
+                <img src="20260305_233928.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="5">
+                <img src="20260305_235621.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="6">
+                <img src="20260306_103632.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="7">
+                <img src="20260306_111610.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="8">
+                <img src="20260306_112029.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="9">
+                <img src="20260306_112345.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="10">
+                <img src="20260306_112356.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="11">
+                <img src="20260306_112357.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="12">
+                <img src="20260306_112429.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="13">
+                <img src="20260306_112845.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="14">
+                <img src="20260306_112847.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="15">
+                <img src="20260306_112906.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="16">
+                <img src="20260306_113712.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="17">
+                <img src="20260306_113729.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="18">
+                <img src="20260306_113736.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="19">
+                <img src="20260306_113759.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="20">
+                <img src="20260306_113859.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="21">
+                <img src="20260306_115950.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="22">
+                <img src="20260306_120008.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="23">
+                <img src="20260306_124013.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="24">
+                <img src="20260306_124030.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="25">
+                <img src="20260306_130755.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="26">
+                <img src="20260306_142616.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="27">
+                <img src="20260307_102005.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="28">
+                <img src="20260307_102050.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="29">
+                <img src="20260307_113624.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="30">
+                <img src="20260307_114358.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="31">
+                <img src="20260307_114508.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="32">
+                <img src="20260307_120147.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="33">
+                <img src="20260307_122240.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="34">
+                <img src="20260307_124731.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="35">
+                <img src="20260307_125539.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="36">
+                <img src="20260307_125542.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="37">
+                <img src="20260307_130709.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="38">
+                <img src="20260307_131117.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="39">
+                <img src="20260307_132204.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="40">
+                <img src="20260307_143542.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="41">
+                <img src="20260307_143554.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="42">
+                <img src="20260307_143849.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="43">
+                <img src="20260307_143910.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="44">
+                <img src="20260307_143920.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="45">
+                <img src="20260307_144023.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="46">
+                <img src="20260307_144617.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="47">
+                <img src="20260307_152516.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="48">
+                <img src="20260307_153032.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="49">
+                <img src="20260307_153039.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="50">
+                <img src="20260307_153051.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="51">
+                <img src="20260307_154104.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="52">
+                <img src="20260307_161008.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="53">
+                <img src="20260307_162104.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="54">
+                <img src="20260307_162202.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="55">
+                <img src="20260307_163023.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="56">
+                <img src="20260307_163104.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="57">
+                <img src="20260307_163507.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="58">
+                <img src="20260307_202657.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+            <div class="photo-card" data-index="59">
+                <img src="20260307_202706.jpg" alt="📍 Kunming" loading="lazy">
+                <div class="photo-caption">📷 📍 Kunming</div>
+            </div>
+
+        </div>
+        
+        <div style="text-align: center;">
+            <a href="../../index.html" class="back-button">← Back to Album Index</a>
+        </div>
+    </div>
+    
+    <div class="lightbox" id="lightbox">
+        <button class="close-lightbox" onclick="closeLightbox()">×</button>
+        <button class="nav-lightbox prev" onclick="prevImage()">‹</button>
+        <img id="lightbox-img" src="" alt="">
+        <button class="nav-lightbox next" onclick="nextImage()">›</button>
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+    
+    <script>
+        let currentImages = [];
+        let currentIndex = 0;
+        
+        document.querySelectorAll('.photo-card').forEach((card, idx) => {
+            const img = card.querySelector('img');
+            const caption = card.querySelector('.photo-caption').innerText;
+            currentImages.push({ src: img.src, caption: caption });
+            card.addEventListener('click', () => {
+                currentIndex = idx;
+                openLightbox();
+            });
+        });
+        
+        function openLightbox() {
+            const lb = document.getElementById('lightbox');
+            document.getElementById('lightbox-img').src = currentImages[currentIndex].src;
+            document.getElementById('lightbox-caption').innerText = currentImages[currentIndex].caption;
+            lb.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+            document.getElementById('lightbox-img').src = currentImages[currentIndex].src;
+            document.getElementById('lightbox-caption').innerText = currentImages[currentIndex].caption;
+        }
+        
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % currentImages.length;
+            document.getElementById('lightbox-img').src = currentImages[currentIndex].src;
+            document.getElementById('lightbox-caption').innerText = currentImages[currentIndex].caption;
+        }
+        
+        document.addEventListener('keydown', (e) => {
+            if (!document.getElementById('lightbox').classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') prevImage();
+            if (e.key === 'ArrowRight') nextImage();
+        });
+    </script>
+</body>
+</html>
