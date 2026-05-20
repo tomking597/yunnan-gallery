@@ -1,10 +1,280 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Yunnan Gallery - Test Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yunnan Photo Adventure 2026</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            color: #fff;
+        }
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7));
+        }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 15px; }
+        .hero .subtitle { font-size: 1.3rem; opacity: 0.9; }
+        .hero .meta { font-size: 1.1rem; opacity: 0.8; margin-top: 15px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            padding: 30px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 20px;
+        }
+        .album-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        .album-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            color: white;
+            display: block;
+        }
+        .album-card:hover { transform: translateY(-8px); background: rgba(255,255,255,0.15); }
+        .album-preview {
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+        .album-info { padding: 20px; }
+        .album-info h3 { font-size: 1.3rem; margin-bottom: 8px; }
+        .album-location { color: #ffd700; font-size: 0.9rem; margin-bottom: 5px; }
+        .album-date { color: #aaa; font-size: 0.85rem; margin-bottom: 10px; }
+        .album-description { font-size: 0.9rem; opacity: 0.85; margin-bottom: 15px; }
+        .album-stats {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: #ccc;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 12px;
+        }
+        .footer { text-align: center; padding: 40px; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 40px; }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .album-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello from GitHub Pages! 🏔️</h1>
-    <p>My Yunnan photo gallery is on its way.</p>
+    <div class="hero">
+        <h1>🏔️ Yunnan Photo Adventure</h1>
+        <div class="subtitle">13 Days • 1,466 Photographs • Spring 2026</div>
+        <div class="meta">Yunnan Province, China • From Kunming to the Red Earth of Dongchuan</div>
+    </div>
+    
+    <div class="container">
+        <div class="intro">
+            <p>✨ A photographic journey through one of China's most beautiful provinces.<br>
+            From golden rapeseed fields to misty rice terraces, hidden cave villages to ancient towns frozen in time. 🌸</p>
+        </div>
+        
+        <div class="album-grid">
+
+            <a href="albums/Day1_Kunming/gallery.html" class="album-card">
+                <div class="album-preview">📸</div>
+                <div class="album-info">
+                    <h3>Arrival in Kunming - Spring City</h3>
+                    <div class="album-location">📍 Kunming</div>
+                    <div class="album-date">📅 March 7, 2026</div>
+                    <div class="album-description">Arrival at Kunming Changshui International Airport. Known as the 'City of Eternal Spring'....</div>
+                    <div class="album-stats">
+                        <span>📸 60 photos</span>
+                        <span>🗺️ Day 1</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="albums/Day2_Kunming/gallery.html" class="album-card">
+                <div class="album-preview">📸</div>
+                <div class="album-info">
+                    <h3>Colorful Sand Forest & Luoping Bound</h3>
+                    <div class="album-location">📍 Kunming → Luliang → Luoping</div>
+                    <div class="album-date">📅 March 8, 2026</div>
+                    <div class="album-description">Journey to Luliang's Colorful Sand Forest, a geological wonder with rainbow-hued sandstone formation...</div>
+                    <div class="album-stats">
+                        <span>📸 99 photos</span>
+                        <span>🗺️ Day 2</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="albums/Day3_Luoping/gallery.html" class="album-card">
+                <div class="album-preview">📸</div>
+                <div class="album-info">
+                    <h3>Golden Rapeseed Flower Fields</h3>
+                    <div class="album-location">📍 Luoping</div>
+                    <div class="album-date">📅 March 9, 2026</div>
+                    <div class="album-description">Full day exploring Luoping's world-famous rapeseed flower fields - a golden sea against karst mounta...</div>
+                    <div class="album-stats">
+                        <span>📸 149 photos</span>
+                        <span>🗺️ Day 3</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="albums/Day4_Luoping/gallery.html" class="album-card">
+                <div class="album-preview">📸</div>
+                <div class="album-info">
+                    <h3>Journey to Hidden Bamei Village</h3>
+                    <div class="album-location">📍 Luoping → Bamei</div>
+                    <div class="album-date">📅 March 10, 2026</div>
+                    <div class="album-description">Travel to Bamei, a secluded village accessible only by boat through a dark cave passage....</div>
+                    <div class="album-stats">
+                        <span>📸 117 photos</span>
+                        <span>🗺️ Day 4</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="albums/Day5_Bamei/gallery.html" class="album-card">
+                <div class="album-preview">📸</div>
+                <div class="album-info">
+                    <h3>Cave Village to Lotus Lake Paradise</h3>
+                    <div class="album-location">📍 Bamei → Puzhehei</div>
+                    <div class="album-date">📅 March 11, 2026</div>
+                    <div class="album-description">Morning exploration of Bamei's cave exit. Afternoon arrival at Puzhehei's karst mountains and lotus ...</div>
+                    <div class="album-stats">
+                        <span>📸 162 photos</span>
+                        <span>🗺️ Day 5</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="albums/Day6_Puzhehei/gallery.html" class="album-card">
+                <div class="album-preview">📸</div>
+                <div class="album-info">
+                    <h3>Puzhehei Sunrise to Mengzi's French Quarter</h3>
+                    <div class="album-location">📍 Puzhehei → Mengzi</div>
+                    <div class="album-date">📅 March 12, 2026</div>
+                    <div class="album-description">Early morning photography of misty karst peaks. Afternoon journey to Mengzi's colonial architecture....</div>
+                    <div class="album-stats">
+                        <span>📸 113 photos</span>
+                        <span>🗺️ Day 6</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="albums/Day7_Mengzi/gallery.html" class="album-card">
+                <div class="album-preview">📸</div>
+                <div class="album-info">
+                    <h3>Colonial Charm to Yuanyang Terraces</h3>
+                    <div class="album-location">📍 Mengzi → Yuanyang</div>
+                    <div class="album-date">📅 March 13, 2026</div>
+                    <div class="album-description">Morning exploration of Mengzi's French Quarter. Afternoon ascent to Yuanyang's misty mountains....</div>
+                    <div class="album-stats">
+                        <span>📸 88 photos</span>
+                        <span>🗺️ Day 7</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="albums/Day8_Yuanyang/gallery.html" class="album-card">
+                <div class="album-preview">📸</div>
+                <div class="album-info">
+                    <h3>Sunrise Over the Hani Rice Terraces</h3>
+                    <div class="album-location">📍 Yuanyang</div>
+                    <div class="album-date">📅 March 14, 2026</div>
+                    <div class="album-description">Pre-dawn ascent for the legendary sunrise over cascading rice terraces....</div>
+                    <div class="album-stats">
+                        <span>📸 160 photos</span>
+                        <span>🗺️ Day 8</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="albums/Day9_Yuanyang/gallery.html" class="album-card">
+                <div class="album-preview">📸</div>
+                <div class="album-info">
+                    <h3>Misty Terraces to Ancient Jianshui</h3>
+                    <div class="album-location">📍 Yuanyang → Jianshui</div>
+                    <div class="album-date">📅 March 15, 2026</div>
+                    <div class="album-description">Final morning capturing light on the terraces. Afternoon journey to 1,200-year-old Jianshui....</div>
+                    <div class="album-stats">
+                        <span>📸 174 photos</span>
+                        <span>🗺️ Day 9</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="albums/Day10_Jianshui/gallery.html" class="album-card">
+                <div class="album-preview">📸</div>
+                <div class="album-info">
+                    <h3>Jianshui's Ancient Wonders</h3>
+                    <div class="album-location">📍 Jianshui</div>
+                    <div class="album-date">📅 March 16, 2026</div>
+                    <div class="album-description">Full day exploring Jianshui's Confucian Temple and the spectacular Double Dragon Bridge....</div>
+                    <div class="album-stats">
+                        <span>📸 157 photos</span>
+                        <span>🗺️ Day 10</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="albums/Day11_Jianshui/gallery.html" class="album-card">
+                <div class="album-preview">📸</div>
+                <div class="album-info">
+                    <h3>Waters of Fuxian to Red Earth</h3>
+                    <div class="album-location">📍 Jianshui → Fuxian Lake → Dongchuan</div>
+                    <div class="album-date">📅 March 17, 2026</div>
+                    <div class="album-description">Morning at Fuxian Lake. Evening arrival at Dongchuan Red Land....</div>
+                    <div class="album-stats">
+                        <span>📸 103 photos</span>
+                        <span>🗺️ Day 11</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="albums/Day12_Kunming/gallery.html" class="album-card">
+                <div class="album-preview">📸</div>
+                <div class="album-info">
+                    <h3>Red Land Sunrise, Return to Kunming</h3>
+                    <div class="album-location">📍 Dongchuan → Kunming</div>
+                    <div class="album-date">📅 March 18, 2026</div>
+                    <div class="album-description">Final morning capturing Dongchuan's dramatic red earth. Return to Kunming....</div>
+                    <div class="album-stats">
+                        <span>📸 81 photos</span>
+                        <span>🗺️ Day 12</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="albums/Day13_Kunming/gallery.html" class="album-card">
+                <div class="album-preview">📸</div>
+                <div class="album-info">
+                    <h3>Kunming's Treasures & Departure</h3>
+                    <div class="album-location">📍 Kunming</div>
+                    <div class="album-date">📅 March 19, 2026</div>
+                    <div class="album-description">Final day exploring Kunming's landmarks before evening departure....</div>
+                    <div class="album-stats">
+                        <span>📸 3 photos</span>
+                        <span>🗺️ Day 13</span>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+        
+        <div class="footer">
+            <p>📷 Yunnan Photography Adventure • March 7-19, 2026</p>
+            <p style="margin-top: 10px; font-size: 0.85rem; opacity: 0.7;">Captured during a 13-day journey through Yunnan's most photogenic locations</p>
+        </div>
+    </div>
 </body>
 </html>
